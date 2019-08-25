@@ -46,9 +46,8 @@ status:
 	@vagrant status
 
 rebuild-client:
-	vagrant destroy --force server1
-	sleep 1
-	vagrant up server1
+	@vagrant destroy --force server1
+	@vagrant up server1
 
 check:
 	@vagrant box outdated
