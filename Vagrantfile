@@ -8,17 +8,17 @@ To access the web interfaces of the lab add the following hosts file entry:
 
 LDAP Server:    https://ldap.linux.lab
 YUM Server:     http://yum.linux.lab
-Task List:      http://lab.linux.lab
+Task List:      http://tasks.linux.lab
 MESSAGE
 
 Vagrant.configure("2") do |config|
   
   config.vm.define "ipa" do |ipa|
     ipa.vm.box = "linux-lab/ipa-server"
-    ipa.vm.hostname = 'ldap.rhcsa.lab'
+    ipa.vm.hostname = 'ldap.linux.lab'
   
     ipa.vm.network "private_network", ip: "192.168.5.100"
-    #ipa.vm.synced_folder ".", "/vagrant", disabled: true
+    ipa.vm.boot_timeout = 600
     ipa.vm.post_up_message = $MESSAGE
 
     ipa.vm.provider :virtualbox do |vbox|
