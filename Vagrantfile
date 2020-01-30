@@ -4,7 +4,7 @@ $MESSAGE = <<-MESSAGE
 RHCSA LAB
 
 To access the web interfaces of the lab add the following hosts file entry: 
-192.168.5.100   ldap.rhcsa.lab yum.rhcsa.lab lab.rhcsa.lab
+192.168.5.100   ldap.linux.lab yum.linux.lab lab.linux.lab
 
 LDAP Server:    https://ldap.linux.lab
 YUM Server:     http://yum.linux.lab
