@@ -3,8 +3,8 @@
 $MESSAGE = <<-MESSAGE
 RHCSA LAB
 
-To access the web interfaces of the lab add the following hosts file entry: 
-192.168.5.100   ldap.linux.lab yum.linux.lab lab.linux.lab
+To access the web interfaces of the lab, add the following entry to your hosts file: 
+192.168.5.100   ldap.linux.lab yum.linux.lab tasks.linux.lab
 
 LDAP Server:    https://ldap.linux.lab
 YUM Server:     http://yum.linux.lab
@@ -21,9 +21,9 @@ Vagrant.configure("2") do |config|
     ipa.vm.boot_timeout = 600
     ipa.vm.post_up_message = $MESSAGE
 
-    ipa.vm.provider :virtualbox do |vbox|
-      vbox.customize ["modifyvm", :id, "--memory", 2048]
-      vbox.customize ["modifyvm", :id, "--name", "RHCSA LAB - FreeIPA Server"]
+    ipa.vm.provider :virtualbox do |v|
+      v.memory = "2048"
+      v.name = "RHCSA LAB - FreeIPA Server"
     end
   end
   
@@ -36,10 +36,10 @@ Vagrant.configure("2") do |config|
     # This will stop NetworkManager from adding entries to resolv.conf from DHCP
     client.vm.provision "shell", inline: "nmcli connection mod enp0s3 ipv4.ignore-auto-dns yes"
 
-    client.vm.provider :virtualbox do |vbox|
-      vbox.gui = true
-      vbox.customize ["modifyvm", :id, "--memory", 1024]
-      vbox.customize ["modifyvm", :id, "--name", "RHCSA LAB - Server 1"] 
+    client.vm.provider :virtualbox do |v|
+      v.gui = true
+      v.memory = "1024"
+      v.name = "RHCSA LAB - Server 1"
     end
   end
 
