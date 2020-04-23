@@ -28,10 +28,6 @@ usage:
 	@$(ECHO)
 	@$(ECHO) " status\t\t\tDisplays current status of the vagrant environment."
 	@$(ECHO)
-	@$(ECHO) " check\t\t\tChecks for outdated boxes."
-	@$(ECHO)
-	@$(ECHO) " update\t\t\tUpdates the box that is in use in the current Vagrant environment."
-	@$(ECHO)
 
 
 lab:
